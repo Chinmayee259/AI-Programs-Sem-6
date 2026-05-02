@@ -1,13 +1,13 @@
 # AI 1. Implement Depth First Search algorithm. Use an undirected graph and develop a recursive algorithm for searching all the vertices of a graph or tree data structure.
 
 # ------------ DFS --------------------------
-def dfs(graph, node, visited = None):
+def dfs(graph, node, visited = None):   #visited = None is used so that a **new visited set is created only once (at the first call) and safely shared                                  across recursive calls without default mutable bugs.
     if visited is None:
         visited = set()
     print(node, end=" ")
     visited.add(node)
 
-    for neighbor in graph.get(node, []):
+    for neighbor in graph.get(node, []): #graph.get(node, []) returns the value of node (its neighbors), and if the node is not present, it returns an empty list [] instead of giving an error.
         if neighbor not in visited:
             dfs(graph, neighbor, visited)
 
@@ -17,11 +17,11 @@ graph = {}
 levels = int(input("Enter number of levels : "))
 
 for i in range(levels):
-    n = int(input("\nEnter number of nodes at level ", i," : "))
+    n = int(input("\nEnter number of nodes at level " + str(i) + ": "))
 
     for j in range(n):
         node = input("Enter node : ")
-        children = input("Enter children of ", node, " (space separated) : ").split()
+        children = input("Enter children of "+ node + " (space separated) : ").split()
 
         graph[node] = children
 
