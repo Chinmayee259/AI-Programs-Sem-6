@@ -1,0 +1,47 @@
+def dijkstra(garph, source):
+    n = len(graph) # number of rows
+
+    #Store the shortest distance from source to every vertex
+    distance = [float('inf')] * n
+
+    #Track the visited vertices
+    visited = [False] * n
+
+    # distance of vertex 0 is 0
+    distance[source] = 0
+
+    for i in range (n):   # to visit all the nodes 
+        # Find minimum distance vertex
+        min_distance = float('inf') # set minimum distance to infinity 
+        u = -1  # u stores selected vertex
+
+        for v in range(n): # check every vertex for the minimum distance 
+            if not visited[v] and distance[v] < min_distance:
+                min_distance = distance[v]
+                u = v
+
+        #Mark selected vertex as visited
+        visited[u] = True
+
+        # Updated distance of adjacent vertices
+        for v in range(n):
+            if(graph[u][v] > 0 and not visited[v] and distance[u] + graph[u][v] < distance[v]):
+                distance[v] = distance[u] + graph[u][v]
+
+    print("Vertex \t Distance from Source")
+
+    for i in range(n):
+        print(i, "\t\t", distance[i])
+
+# Adjacency Matrix
+graph = [
+    [0, 4, 0, 0, 8],
+    [4, 0, 8, 0, 11],
+    [0, 8, 0, 7, 2],
+    [0, 0, 7, 0, 9],
+    [8, 11, 2, 9, 0]
+]
+
+source = 0
+
+dijkstra(graph, source)

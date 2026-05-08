@@ -1,0 +1,65 @@
+def job_scheduling(jobs):
+    n = len(jobs)   # No of rows that is jobs
+
+    # Sort jobs according to the profit of jobs
+    jobs.sort(key=lambda x:x[2], reverse = True)
+    # jobs.sort() an inbuilt function
+    # keys tells based on which factor we are sorting the jobs 
+    # lambda is a short function
+    # x :  means take each tuple from the jobs
+    # x[2] : means take the second element i.e. profit from the tuple
+    # reverse = True : The sort() function sorts the jobs in ascending order by default . so it sorts the jobs in descending i.e. highest profit first
+
+    
+    #Find Max deadline
+    max_deadline = 0
+
+    for job in jobs:
+        if job[1] > max_deadline:
+            max_deadline = job[1]
+
+    # Create slots
+    slots = [-1] * max_deadline
+
+    total_profit = 0
+
+    print("\nSelected Jobs: ")
+
+    # Schedule Jobs
+    for job in jobs:
+        job_id = job[0]
+        deadline = job[1]
+        profit = job[2]
+
+        # Find free slot from deadline to beginning
+        for j in range(deadline -1, -1, -1):
+
+            if slots[j] == -1:
+                slots[j] = job_id
+                total_profit += profit
+                print(job_id)
+                break
+    print("\nTotal Profit = ", total_profit)
+    print("\nSlots: ")
+    print(slots)
+
+jobs = []
+
+n = int(input("Enter number of jobs: "))
+
+for i in range(n):
+    job_id = input("\nEnter Job ID: ")
+    deadline = int(input("Enter Deadline: "))
+    profit = int(input("Enter Profit: "))
+
+    jobs.append((job_id, deadline, profit))
+
+job_scheduling(jobs)
+
+
+
+
+
+
+
+
