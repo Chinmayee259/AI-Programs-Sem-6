@@ -1,3 +1,5 @@
+# implement Greedy search algorithm for the following application Prim's Minimal Spanning Tree Algorithm & Kruskal's Minimal Spanning Tree Algorithm.
+
 def prim_mst(graph):
     INF = 9999999
     V = len(graph) # Number of rows in graph

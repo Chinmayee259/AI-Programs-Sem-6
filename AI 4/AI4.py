@@ -2,7 +2,7 @@ import heapq
 
 goal = [[1, 2, 3],
         [4, 5, 6],
-        [77, 8, 9]]
+        [7, 8, 9]]
 
 def h(board): # It calculates Manhattan Distance heuristic
     dist = 0
@@ -53,7 +53,7 @@ def solve(start):
         for dx, dy in moves: # It tries all possible moves (up, down, left, right) from the current position of 0. Takes one direction at a time from moves
             nx, ny = x + dx, y + dy # New row and column position
 
-            if 0 <= nx < 3 and 0 <= y < 3:  # This checks if the new position is inside the 3×3 board
+            if 0 <= nx < 3 and 0 <= ny < 3:  # This checks if the new position is inside the 3×3 board
                 new_board = [row[:] for row in board]  # This creates a deep copy of the board
                 # row[:] → copies each row
                 new_board[x][y], new_board[nx][ny] = new_board[nx][ny], new_board[x][y]

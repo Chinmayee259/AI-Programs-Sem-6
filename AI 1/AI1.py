@@ -4,11 +4,11 @@
 def dfs(graph, node, visited = None):   #visited = None is used so that a **new visited set is created only once (at the first call) and safely shared                                  across recursive calls without default mutable bugs.
     if visited is None:
         visited = set()
-    print(node, end=" ")
+    print(node, end=" ")   # end=" " means: after printing, don’t go to next line — instead print a space.
     visited.add(node)
 
     for neighbor in graph.get(node, []): #graph.get(node, []) returns the value of node (its neighbors), and if the node is not present, it returns an empty list [] instead of giving an error.
-        if neighbor not in visited:
+        if neighbor not in visited:  # neighbor will contain 1 neighbor for each iteration
             dfs(graph, neighbor, visited)
 
 # ------------ INPUT --------------------------

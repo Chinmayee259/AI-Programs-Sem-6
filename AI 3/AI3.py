@@ -24,7 +24,7 @@ def a_star(n):
         f, g, state = heapq.heappop(pq)
 
         # Goal : all queens placed with no connflicts
-        if len(state) == n and heuristic(state) == 0:
+        if len(state) == n and heuristic(state) == 0:   
             return state
 
         row = len(state)  #for row = 0 it means now we will keep a queen on row 0

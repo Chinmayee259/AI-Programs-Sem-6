@@ -34,9 +34,9 @@ def job_scheduling(jobs):
         # Find free slot from deadline to beginning
         for j in range(deadline -1, -1, -1):
 
-            if slots[j] == -1:
+            if slots[j] == -1: 
                 slots[j] = job_id
-                total_profit += profit
+                total_profit += profit     
                 print(job_id)
                 break
     print("\nTotal Profit = ", total_profit)
