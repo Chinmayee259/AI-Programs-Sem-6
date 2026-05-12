@@ -1,0 +1,20 @@
+public class FactorialCalculator{
+    public staatic Integer factorial(Integer n){
+        Integer fact = 1;
+
+        for (Integer i = 1; i <= n; i++){
+            fact = fact * i;
+        
+        }
+
+        return fact;
+    }
+
+    public static void printFactorial(Integer num){
+        Integer result = factorial(num);
+
+        System.debug("The factorial of "+ num + " is " + result);
+    }
+}
+
+To Run :- FactorialCalculator.printFactorial(3)
